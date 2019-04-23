@@ -1,0 +1,19 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "WI Space Race Dashboard",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wispacerace/dashboard.git"
+  },
+  "author": "Anna Iwanski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wispacerace/dashboard/issues"
+  },
+  "homepage": "https://github.com/wispacerace/dashboard#readme"
+}
