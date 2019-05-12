@@ -19,7 +19,7 @@
   "homepage": "https://github.com/wispacerace/dashboard#readme",
   "devDependencies": {},
   "dependencies": {
-    "electron": "^4.1.4",
+    "electron": "^4.1.4"
   }
 
 }
