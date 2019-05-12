@@ -2,9 +2,9 @@
   "name": "dashboard",
   "version": "1.0.0",
   "description": "WI Space Race Dashboard",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
-    "test": "electron ."
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wispacerace/dashboard/issues"
   },
-  "homepage": "https://github.com/wispacerace/dashboard#readme"
+  "homepage": "https://github.com/wispacerace/dashboard#readme",
+  "devDependencies": {
+    "electron": "^4.1.4"
+  }
 }
