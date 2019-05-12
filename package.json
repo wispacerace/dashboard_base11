@@ -4,6 +4,7 @@
   "description": "WI Space Race Dashboard",
   "main": "src/main.js",
   "scripts": {
+    "test": "electron .",
     "start": "electron ."
   },
   "repository": {
