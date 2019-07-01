@@ -21,12 +21,16 @@ function setup(){
  		BrowserWindow.getFocusedWindow().reload();
 	});
 }
+
+function checkSum(data, checksum){
+	return true;
+}
 /* data format:
 	$WISR,ID,COUNT,UTC_TIME,LATITUDE,LONGITUDE,GPS_ALTITUDE,BAROMETER_ALTITUDE,
 	NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM
 */
-function parseData(package){
-	var dataArray = datapackage.split(",");
+function parseData(dataPackage){
+	var dataArray = dataPackage.split(",");
 	var length = dataArray.length;
 	var lastEntry = dataArray[length - 1];
 	lastEntry = lastEntry.split("*");
@@ -35,11 +39,11 @@ function parseData(package){
 	var count = dataArray[2];
 	var checksum = lastEntry[1];
 	dataArray[length - 1] = lastEntry[0];
-	
-	dataArray = dataArray.slice(3, );
-	if(checkSum(checksum) === false){
+	if(checkSum(dataArray, checksum) === false){
 		return -1;
 	}
+	
+	dataArray = dataArray.slice(3, );
 	return [count, dataArray];
 }
 
@@ -50,7 +54,7 @@ function running(pause){
  //    	var result = parseData(dataPackage);
 	 // }, pause);
 	var testdata = "$WISR,ID,COUNT,UTC_TIME,LATITUDE,LONGITUDE,GPS_ALTITUDE,BAROMETER_ALTITUDE,\
-    	NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM";
+NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM";
 	var result = parseData(testdata);
 	if(result !== -1){
 		var count = result[0];
@@ -62,6 +66,7 @@ function runApp(){
 	setup();
 	createWindow();
 	running(1000); // wait time in ms
+	app.quit();
 }
 
 app.on('ready', runApp);
