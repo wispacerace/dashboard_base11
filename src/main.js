@@ -2,6 +2,9 @@ const electron = require('electron');
 
 const { app, BrowserWindow, globalShortcut } = require('electron');
 
+var packageMap = new Map();
+var packageCount = 0;
+
 function createWindow () {
   let win = new BrowserWindow({ width: 1920, height: 1080 });
   win.loadFile('src/index.html');
@@ -19,9 +22,17 @@ function setup(){
 	});
 }
 
+function running(pause){
+	setInterval(function () { 
+    	console.log('Refreshing');
+    	var datapackage = ???;
+    	dataQueue.push(datapackage);
+
+	}, pause);
+}
 function runApp(){
 	setup();
-	createWindow();
+	createWindow(); 
 }
 
 app.on('ready', runApp);
