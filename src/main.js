@@ -1,27 +1,12 @@
-const electron = require('electron');
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
 
-const { app, BrowserWindow, globalShortcut } = require('electron');
+Vue.config.productionTip = false
 
-function createWindow () {
-  let win = new BrowserWindow({ width: 1920, height: 1080 });
-  win.loadFile('src/index.html');
-  win.on('closed', function(){
-  	app.quit();
-  });
-};
-
-function setup(){
-	globalShortcut.register('F6', () => {
- 		BrowserWindow.getFocusedWindow().toggleDevTools();
-	});
-	globalShortcut.register('F5', () => {
- 		BrowserWindow.getFocusedWindow().reload();
-	});
-}
-
-function runApp(){
-	setup();
-	createWindow();
-}
-
-app.on('ready', runApp);
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')
