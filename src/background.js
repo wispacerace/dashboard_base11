@@ -69,6 +69,7 @@ app.on('ready', async () => {
     }
   }
   createWindow()
+  running();
 })
 
 // Exit cleanly on request from parent process in development mode.
