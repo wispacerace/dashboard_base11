@@ -64,8 +64,8 @@ app.on('ready', async () => {
     } catch (e) {
     console.error('Vue Devtools failed to install:', e.toString())
     }
-    runApp();
   }
+  runApp();
 });
 
 // Exit cleanly on request from parent process in development mode.
