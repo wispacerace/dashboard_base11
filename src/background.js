@@ -1,7 +1,14 @@
 'use strict'
 
 const electron = require('electron');
-import { globalShortcut, app, protocol, BrowserWindow } from 'electron'
+import { 
+  ipcMain, 
+  globalShortcut, 
+  app, 
+  protocol, 
+  BrowserWindow 
+} from 'electron'
+
 import {
   createProtocol,
   installVueDevtools
@@ -125,19 +132,20 @@ function parseData(dataPackage){
 }
 
 function running(pause){
-  // setInterval(function () { 
- //     console.log('Refreshing');
+  setInterval(function () { 
+    console.log('Refreshing');
  //     var dataPackage = ???;
  //     var result = parseData(dataPackage);
-   // }, pause);
-  var testdata = "$WISR,ID,COUNT,UTC_TIME,LATITUDE,LONGITUDE,GPS_ALTITUDE,BAROMETER_ALTITUDE,\
+    var testdata = "$WISR,ID,COUNT,UTC_TIME,LATITUDE,LONGITUDE,GPS_ALTITUDE,BAROMETER_ALTITUDE,\
 NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM";
-  var result = parseData(testdata);
-  if(result !== -1){
-    var count = result[0];
-    var dataArray = result[1];
-    console.log(count + "   " + dataArray);
-  }
+    var result = parseData(testdata);
+    if(result !== -1){
+      var count = result[0];
+      var dataArray = result[1];
+      console.log(count + "   " + dataArray);
+    }
+    win.webContents.send('broadcast', Math.floor(Math.random()*100));
+  }, pause);
 }
 // main function
 function runApp(){

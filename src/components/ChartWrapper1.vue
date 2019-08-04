@@ -17,25 +17,21 @@ export default {
     Chart
   },
   mounted(){
-    this.addData();
-    var i;
+    this.setup("x_axis_wrapper", "y_axis");
     this.interval = setInterval(() => {
-        i = i + 100
-        this.addData(i);
+        var data = Math.random() + 100;
+        this.addData(data);
     }, 500);
   },
   methods: {
     setup: function(x_axis, y_axis){
-      print("HELLO")
       this.chart.layout.xaxis.title = x_axis;
       this.chart.layout.yaxis.title = y_axis;
     },
-    addData: function() {
-
+    addData: function(data) {
       this.chart.layout.datarevision = new Date().getTime();
-      this.chart.traces[0].y.push(Math.random() + 100)
-      this.chart.layout.xaxis.title = "x_axis_wrapper";
-      this.chart.layout.yaxis.title = "y_axis";}
+      this.chart.traces[0].y.push(data);
+    }
     
   },
   data: function() {
