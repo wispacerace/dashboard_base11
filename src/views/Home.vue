@@ -16,7 +16,7 @@
 
 import ChartWrapper1 from '@/components/ChartWrapper1.vue'
 import ChartWrapper2 from '@/components/ChartWrapper2.vue'
-import List from './components/List.vue'
+import List from '@/components/List.vue'
 
 export default {
   name: 'home',
