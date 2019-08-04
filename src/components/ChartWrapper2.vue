@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import {ipcRenderer} from 'electron'
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
 import Chart from '@/components/Chart.vue'

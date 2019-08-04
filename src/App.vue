@@ -8,6 +8,9 @@
   </div>
 </template>
 
+<script>
+  import {ipcRenderer} from 'electron'
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
