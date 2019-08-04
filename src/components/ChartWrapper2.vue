@@ -7,8 +7,9 @@
 <script>
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
-import Chart from '@/components/Chart.vue'
 //import Plotly from 'plotly.js-dist';
+import Chart from '@/components/Chart.vue'
+import {ipcRenderer} from 'electron'
 
 export default {
   name: 'home',

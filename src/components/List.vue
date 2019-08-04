@@ -2,17 +2,17 @@
   <div class="list" style="display:inline"> <!-- style="transform: scale(.6)" -->
 
 
-    <table width="150px" id="list-table" v-for="quantity in quantities" :key="quantity">
+    <table width="150px" id="list-table" v-for="quantity in quantities">
       <tr>
         <th class="list-element" id="list-header">{{quantity.name}}</th>
       </tr>
 
-      <tr v-for="value in quantity.values.slice(0,5)" :key="value">
+      <tr v-for="value in quantity.values.slice(0,5)">
         <td class="list-element">{{value}}</td>
       </tr>
     </table>
 
-    <button  @click="addRow"></button>
+    <button @click="addRow">Click to Add Row</button>
 
   </div>
 </template>
@@ -20,7 +20,12 @@
 <script>
 export default {
   name: 'List',
-  data() {
+  methods: {
+    addRow: () => {
+
+    }
+  },
+  data: () => {
     return {
         names: [
           {name:'Position'},
