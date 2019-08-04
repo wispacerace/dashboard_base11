@@ -2,12 +2,12 @@
   <div class="list" style="display:inline"> <!-- style="transform: scale(.6)" -->
 
 
-    <table width="150px" id="list-table" v-for="quantity in quantities">
+    <table width="150px" id="list-table" v-for="quantity in quantities" :key="quantity">
       <tr>
         <th class="list-element" id="list-header">{{quantity.name}}</th>
       </tr>
 
-      <tr v-for="value in quantity.values.slice(0,5)">
+      <tr v-for="(value, index) in quantity.values.slice(0,5)" :key="`value-${index}`">
         <td class="list-element">{{value}}</td>
       </tr>
     </table>
