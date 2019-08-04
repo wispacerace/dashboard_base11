@@ -2,7 +2,7 @@
   <div class="list" style="display:inline"> <!-- style="transform: scale(.6)" -->
 
 
-    <table width="150px" id="list-table" v-for="quantity in quantities" :key="quantity">
+    <table width="150px" id="list-table" v-for="(quantity, index) in quantities" :key="`quantity-${index}`">
       <tr>
         <th class="list-element" id="list-header">{{quantity.name}}</th>
       </tr>
