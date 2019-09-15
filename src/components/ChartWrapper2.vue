@@ -25,8 +25,11 @@ export default {
       this.chart.layout.yaxis.title = y_axis;
 
       ipcRenderer.on('broadcast', (event, data) => {
-        console.log(data);
-        this.addData(data);
+        console.log("Name: " + data.name + " Value: " + data.value);
+        this.addData(data.value);
+        if(this.chart.traces[0].y.length > 50){
+          this.chart.traces[0].y.shift();
+        }
       });
     },
     addData: function(data) {

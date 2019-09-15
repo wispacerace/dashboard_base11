@@ -1,4 +1,5 @@
 'use strict'
+const DataEnum = require('./Enums/DataEnum.json');
 
 const electron = require('electron');
 import { 
@@ -128,23 +129,28 @@ function parseData(dataPackage){
   }
   
   dataArray = dataArray.slice(3, );
-  return [count, dataArray];
+  return [packageID, count, dataArray];
 }
 
 function running(pause){
   setInterval(function () { 
-    console.log('Refreshing');
+    //console.log('Refreshing');
  //     var dataPackage = ???;
  //     var result = parseData(dataPackage);
-    var testdata = "$WISR,ID,COUNT,UTC_TIME,LATITUDE,LONGITUDE,GPS_ALTITUDE,BAROMETER_ALTITUDE,\
+    var ID = Math.floor(Math.random() * 16);
+    var testdata = "$WISR,"+ID+",COUNT,UTC_TIME,LATITUDE,LONGITUDE,GPS_ALTITUDE,BAROMETER_ALTITUDE,\
 NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM";
     var result = parseData(testdata);
     if(result !== -1){
-      var count = result[0];
-      var dataArray = result[1];
-      console.log(count + "   " + dataArray);
+      var packageID = result[0];
+      var count = result[1];
+      var dataArray = result[2];
+      //console.log(count + "   " + dataArray);
+      /*
+        Data that we have the choice of sending back from the rocket to the dash: AOA x4 (along each fin), airspeed, acceleration, velocity, pitch, yaw, roll, pitch rate, yaw rate, roll rate, altitude, temperature (of electronics bay), heading and attitude from AHRS (may be broken due to the high acceleration of the rocket, ask Brandon/Liam)
+      */
+      win.webContents.send('broadcast', {"name" : DataEnum[packageID] , "value" : Math.floor(Math.random()*100)});
     }
-    win.webContents.send('broadcast', Math.floor(Math.random()*100));
   }, pause);
 }
 // main function
