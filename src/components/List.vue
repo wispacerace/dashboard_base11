@@ -18,6 +18,8 @@
 </template>
 
 <script>
+  import Data from './Data.vue'
+
 export default {
   name: 'List',
   methods: {
@@ -25,32 +27,10 @@ export default {
 
     }
   },
-  data: () => {
-    return {
-        names: [
-          {name:'Position'},
-          {name:'Velocity'},
-          {name:'Acceleration'}
-        ],
-        quantities: [
-
-          {
-            name: 'Position',
-            values: ['1', '2', '3','4', '5', '6','7', '8', '9','10', '11', '12']
-          },
-
-          {
-            name: 'Acceleration',
-            values: ['1', '2', '3','4', '5', '6','7', '8', '9','10', '11', '12']
-          },
-
-          {
-            name: 'Velocity',
-            values: ['1', '2', '3','4', '5', '6','7', '8', '9','10', '11', '12']
-          }
-        ]
-    }
+  data: ()=>{
+    return Data.data()
   }
+
 }
 </script>
 

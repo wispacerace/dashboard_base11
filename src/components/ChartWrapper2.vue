@@ -9,7 +9,6 @@
 //import HelloWorld from '@/components/HelloWorld.vue'
 //import Plotly from 'plotly.js-dist';
 import Chart from '@/components/Chart.vue'
-import {ipcRenderer} from 'electron'
 
 export default {
   name: 'home',
@@ -24,13 +23,7 @@ export default {
       this.chart.layout.xaxis.title = x_axis;
       this.chart.layout.yaxis.title = y_axis;
 
-      ipcRenderer.on('broadcast', (event, data) => {
-        console.log("Name: " + data.name + " Value: " + data.value);
-        this.addData(data.value);
-        if(this.chart.traces[0].y.length > 50){
-          this.chart.traces[0].y.shift();
-        }
-      });
+
     },
     addData: function(data) {
       this.chart.layout.datarevision = new Date().getTime();

@@ -102,9 +102,6 @@ function setup(){
   globalShortcut.register('ESC', () => {
     BrowserWindow.getFocusedWindow().close();
   });
-  globalShortcut.register('Ctrl+C', () => {
-    app.quit();
-  });
 }
 
 function checkSum(data, checksum){
@@ -137,7 +134,7 @@ function running(pause){
     //console.log('Refreshing');
  //     var dataPackage = ???;
  //     var result = parseData(dataPackage);
-    var ID = Math.floor(Math.random() * 16);
+    var ID = Math.floor(Math.random() * 15);
     var testdata = "$WISR,"+ID+",COUNT,UTC_TIME,LATITUDE,LONGITUDE,GPS_ALTITUDE,BAROMETER_ALTITUDE,\
 NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM";
     var result = parseData(testdata);
@@ -149,7 +146,7 @@ NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM";
       /*
         Data that we have the choice of sending back from the rocket to the dash: AOA x4 (along each fin), airspeed, acceleration, velocity, pitch, yaw, roll, pitch rate, yaw rate, roll rate, altitude, temperature (of electronics bay), heading and attitude from AHRS (may be broken due to the high acceleration of the rocket, ask Brandon/Liam)
       */
-      win.webContents.send('broadcast', {"name" : DataEnum[packageID] , "value" : Math.floor(Math.random()*100)});
+      win.webContents.send('broadcast', {"id" : packageID , "value" : Math.floor(Math.random()*100)});
     }
   }, pause);
 }
