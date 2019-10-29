@@ -1,0 +1,18 @@
+{
+    "AOA1"              : 0,
+    "AOA2"              : 1,
+    "AOA3"              : 2,
+    "AOA4"              : 3,
+    "Airsped"           : 4,
+    "Acceleration"      : 5,
+    "Velocity"          : 6,
+    "Pitch"             : 7,
+    "Yaw"               : 8,
+    "Roll"              : 9,
+    "Pitch Rate"        : 10,
+    "Yaw Rate"          : 11,
+    "Altitude"          : 12,
+    "EBay Temperature"  : 13,
+    "Heading (AHRS)"    : 14,
+    "Attitude (AHRS)"   : 15
+}

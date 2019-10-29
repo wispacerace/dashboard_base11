@@ -1,5 +1,5 @@
 'use strict'
-const DataEnum = require('./Enums/DataEnum.json');
+const DataEnum = require('./MapsAndEnums/DataIDMap.json');
 
 const electron = require('electron');
 import { 
@@ -154,5 +154,5 @@ NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM";
 function runApp(){
   setup();
   createWindow();
-  running(1000); // wait time in ms
+  running(300); // wait time in ms
 }
