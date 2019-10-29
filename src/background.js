@@ -134,7 +134,7 @@ function running(pause){
     //console.log('Refreshing');
  //     var dataPackage = ???;
  //     var result = parseData(dataPackage);
-    var ID = Math.floor(Math.random() * 15);
+    var ID = Math.floor(Math.random() * 16 - 0.01);
     var testdata = "$WISR,"+ID+",COUNT,UTC_TIME,LATITUDE,LONGITUDE,GPS_ALTITUDE,BAROMETER_ALTITUDE,\
 NUM_SATELLITES,TEMP,BATTERY,EXTRA1,EXTRA2,EXTRA3,EXTRA4,EXTRA5*CHECKSUM";
     var result = parseData(testdata);

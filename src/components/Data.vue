@@ -16,11 +16,11 @@
                 ipcRenderer.on('broadcast', (event, data) => {
                     console.log("id: " + data.id + " Value: " + data.value);
                     quantity[data.id].values.push(data.value);
-                    if(quantity[data.id].values > 5){
+                    if(quantity[data.id].values.length > 5){
                         quantity[data.id].values.shift();
                     }
                 });
-                for (var i = 1; i < Object.keys(DataEnum).length; i++){
+                for (var i = 0; i < Object.keys(DataEnum).length; i++){
                     quantity.push({ name: DataEnum[i], values: []});
                 }
 
