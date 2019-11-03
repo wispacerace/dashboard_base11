@@ -28,5 +28,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.plot{
+  padding: 5px;
+  width: 500px;
+  height: 300px;
+  float: left;
+}
 </style>
